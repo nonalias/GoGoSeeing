@@ -38,7 +38,42 @@ h1 {letter-spacing: 6px}
     </div>
   </header>
 
-  
+  <div class="ui-body ui-body-a gap">
+				<label for="cafeName1">맛집명  : </label>
+			 	<input type="text" name="cafeName1" id="cafeName1" data-mini="true"/>
+				<label for="cafeType1" class="select">업종 :</label>
+				<select name="cafeType1" id="cafeType1" data-native-menu="false" data-mini="true" data-inline="true">
+					<option value="미정">미정</option>
+					<option value="한식">한식</option>
+					<option value="양식">양식</option>
+					<option value="중식">중식</option>
+					<option value="일식">일식</option>
+					<option value="주점">주점</option>
+					<option value="기타">기타</option>
+				</select>
+				<label for="cafeRegion1" class="select">지역 :</label>
+				<select name="cafeRegion1" id="cafeRegion1" data-native-menu="false" data-mini="true" data-inline="true">
+					<option value="미정">미정</option>
+					<option value="서울">서울</option>
+					<option value="경기">경기</option>
+					<option value="강원">강원</option>
+					<option value="호남">호남</option>
+					<option value="영남">영남</option>
+					<option value="충청">충청</option>
+					<option value="제주">제주</option>
+				</select>
+				<label for="cafeScore1">평가 : </label>
+				<input type="range" name="cafeScore1" id="cafeScore1" min="0" max="10"/>
+			 	<label for="cafePhone1">전화 : </label>
+				<input type="tel" name="cafePhone1" id="cafePhone1" data-mini="true" placeholder="예) 031-123-4567"/>
+			 	<label for="cafeAddress1">주소 : </label>
+				<input type="text" name="cafeAddress1" id="cafeAddress1" data-mini="true"/>
+				<label for="cafeMemo1">메모 : </label>
+				<textarea cols="25" rows="5" name="cafeMemo1" id="cafeMemo1" data-mini="true"></textarea>
+				<label for="cafePic1">사진 : </label>
+				<input type="text" name="cafePic1" id="cafePic1" data-mini="true" placeholder="예) 길목 or Gilmok"/>
+				<input type="button" name="takePic1" id="btnTakePic1" value="사진촬영" data-mini="true"/>
+			</div>
 
   <!-- End Page Content -->
   </div>
