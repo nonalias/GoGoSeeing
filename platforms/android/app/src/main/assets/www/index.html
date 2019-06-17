@@ -18,6 +18,16 @@
   var a = window.location.pathname;
   $(document).ready(function(){
     $('#currentPath').text(a);
+
+    $('#seeExhibition').bind('click', function(){
+      $.mobile.changePage("./seeExhibition.html", {transition:"flip", changeHash : true});
+    });
+    $('#myPlan').bind('click', function(){
+      $.mobile.changePage("./myPlan.html", {transition:"flip", changeHash : true});
+    });
+    $('#addExhibition').bind('click', function(){
+      $.mobile.changePage("./addExhibition.html", {transition:"flip", changeHash : true});
+    });
   });
 
 </script>
@@ -33,15 +43,15 @@ h1 {letter-spacing: 6px}
   <div class="w3-content" style="max-width:1500px">
 
   <!-- Header -->
-  <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
+  <header  class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
     <h1 class="w3-xlarge">GoGoSeeing</h1>
     <h1>전시회 알람이</h1>
 
     <div class="w3-padding-32">
       <div class="w3-bar w3-border">
-        <a href="./seeExhibition.html" class="w3-bar-item w3-button">전시회 보기</a>
-        <a href="./myPlan.html" class="w3-bar-item w3-button w3-light-grey">내 일정 보기</a>
-        <a href="./addExhibition.html" class="w3-bar-item w3-button">등록하기</a>
+        <a href="#" id="seeExhibition" class="w3-bar-item w3-button">전시회 보기</a>
+        <a href="#" id="myPlan" class="w3-bar-item w3-button w3-light-grey">내 일정 보기</a>
+        <a href="#" id="addExhibition" class="w3-bar-item w3-button">등록하기</a>
       </div>
     </div>
   </header>
