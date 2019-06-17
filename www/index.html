@@ -14,20 +14,26 @@
 <!-- jquery-ui-map 플러그인 라이브러리 파일(다운로드 방식)  -->
 <script src="ui/min/jquery.ui.map.full.min.js"></script>
 <script src="ui/jquery.ui.map.extensions.js"></script>
-<script>
-  var a = window.location.pathname;
-  $(document).ready(function(){
-    $('#currentPath').text(a);
 
-    $('#seeExhibition').bind('click', function(){
-      $.mobile.changePage("./seeExhibition.html", {transition:"flip", changeHash : true});
-    });
-    $('#myPlan').bind('click', function(){
-      $.mobile.changePage("./myPlan.html", {transition:"flip", changeHash : true});
-    });
-    $('#addExhibition').bind('click', function(){
-      $.mobile.changePage("./addExhibition.html", {transition:"flip", changeHash : true});
-    });
+<!-- 사용자 정의 자바스크립트 파일  -->
+<script src="dbHandle.js"></script>
+<script src="photoHandle.js"></script>
+
+<script type="text/javascript">
+// 전역변수 설정
+  var db = null;
+  $(document).ready(function(){
+
+
+    // DB, Table 열기
+	    openDB();
+	    createTable();
+
+    // $('#btnAdd').click(function(){
+      // insertExhibit();
+    // });
+
+
   });
 
 </script>
@@ -49,16 +55,14 @@ h1 {letter-spacing: 6px}
 
     <div class="w3-padding-32">
       <div class="w3-bar w3-border">
-        <a href="#" id="seeExhibition" class="w3-bar-item w3-button">전시회 보기</a>
-        <a href="#" id="myPlan" class="w3-bar-item w3-button w3-light-grey">내 일정 보기</a>
-        <a href="#" id="addExhibition" class="w3-bar-item w3-button">등록하기</a>
+        <a href="./seeExhibition.html" data-transition="flip" class="w3-bar-item w3-button">전시회 보기</a>
+        <a href="./myPlan.html" data-transition="flip" class="w3-bar-item w3-button w3-light-grey">내 일정 보기</a>
+        <a href="./addExhibition.html" data-transition="flip" class="w3-bar-item w3-button">등록하기</a>
       </div>
     </div>
   </header>
 
-  <div id = "currentPath">
 
-  </div>
 
   <!-- End Page Content -->
   </div>

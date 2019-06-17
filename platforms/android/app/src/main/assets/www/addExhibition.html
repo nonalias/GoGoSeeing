@@ -13,6 +13,21 @@
 <!-- jquery-ui-map 플러그인 라이브러리 파일(다운로드 방식)  -->
 <script src="ui/min/jquery.ui.map.full.min.js"></script>
 <script src="ui/jquery.ui.map.extensions.js"></script>
+<!-- 사용자 정의 자바스크립트 파일  -->
+<script src="dbHandle.js"></script>
+<script src="photoHandle.js"></script>
+
+<script>
+
+  $(document).ready(function(){
+    $('#btnAdd').click(function(){
+      insertExhibit();
+    });
+
+
+  });
+
+</script>
 
 <style>
 body,h1 {font-family: "Raleway", Arial, sans-serif}
@@ -31,28 +46,26 @@ h1 {letter-spacing: 6px}
 
     <div class="w3-padding-32">
       <div class="w3-bar w3-border">
-        <a href="./seeExhibition.html" class="w3-bar-item w3-button">전시회 보기</a>
-        <a href="./myPlan.html" class="w3-bar-item w3-button w3-light-grey">내 일정 보기</a>
-        <a href="./addExhibition.html" class="w3-bar-item w3-button">등록하기</a>
+        <a href="./seeExhibition.html" data-transition="flip" class="w3-bar-item w3-button">전시회 보기</a>
+        <a href="./myPlan.html" data-transition="flip" class="w3-bar-item w3-button w3-light-grey">내 일정 보기</a>
+        <a href="./addExhibition.html" data-transition="flip" class="w3-bar-item w3-button">등록하기</a>
       </div>
     </div>
   </header>
 
     <div class="ui-body ui-body-a gap">
-  				<label for="cafeName1">맛집명  : </label>
-  			 	<input type="text" name="cafeName1" id="cafeName1" data-mini="true"/>
-  				<label for="cafeType1" class="select">업종 :</label>
-  				<select name="cafeType1" id="cafeType1" data-native-menu="false" data-mini="true" data-inline="true">
+  				<label for="exhibitName1">전시회 이름  : </label>
+  			 	<input type="text" name="exhibitName1" id="exhibitName1" data-mini="true"/>
+  				<label for="exhibitType1" class="select">전시회 종류 :</label>
+  				<select name="exhibitType1" id="exhibitType1" data-native-menu="false" data-mini="true" data-inline="true">
   					<option value="미정">미정</option>
-  					<option value="한식">한식</option>
-  					<option value="양식">양식</option>
-  					<option value="중식">중식</option>
-  					<option value="일식">일식</option>
-  					<option value="주점">주점</option>
-  					<option value="기타">기타</option>
+  					<option value="미술">미술</option>
+  					<option value="예술">예술</option>
+  					<option value="IT">IT</option>
+  					<option value="역사">역사</option>
   				</select>
-  				<label for="cafeRegion1" class="select">지역 :</label>
-  				<select name="cafeRegion1" id="cafeRegion1" data-native-menu="false" data-mini="true" data-inline="true">
+  				<label for="exhibitRegion1" class="select">지역 :</label>
+  				<select name="exhibitRegion1" id="exhibitRegion1" data-native-menu="false" data-mini="true" data-inline="true">
   					<option value="미정">미정</option>
   					<option value="서울">서울</option>
   					<option value="경기">경기</option>
@@ -62,19 +75,27 @@ h1 {letter-spacing: 6px}
   					<option value="충청">충청</option>
   					<option value="제주">제주</option>
   				</select>
-  				<label for="cafeScore1">평가 : </label>
-  				<input type="range" name="cafeScore1" id="cafeScore1" min="0" max="10"/>
-  			 	<label for="cafePhone1">전화 : </label>
-  				<input type="tel" name="cafePhone1" id="cafePhone1" data-mini="true" placeholder="예) 031-123-4567"/>
-  			 	<label for="cafeAddress1">주소 : </label>
-  				<input type="text" name="cafeAddress1" id="cafeAddress1" data-mini="true"/>
-  				<label for="cafeMemo1">메모 : </label>
-  				<textarea cols="25" rows="5" name="cafeMemo1" id="cafeMemo1" data-mini="true"></textarea>
-  				<label for="cafePic1">사진 : </label>
-  				<input type="text" name="cafePic1" id="cafePic1" data-mini="true" placeholder="예) 길목 or Gilmok"/>
+  			 	<label for="exhibitPhone1">전화 : </label>
+  				<input type="tel" name="exhibitPhone1" id="exhibitPhone1" data-mini="true" placeholder="예) 031-123-4567"/>
+  			 	<label for="exhibitAddress1">주소 : </label>
+  				<input type="text" name="exhibitAddress1" id="exhibitAddress1" data-mini="true"/>
+  				<label for="exhibitMemo1">메모 : </label>
+  				<textarea cols="25" rows="5" name="exhibitMemo1" id="exhibitMemo1" data-mini="true"></textarea>
+  				<label for="exhibitPic1">사진 : </label>
+  				<input type="text" name="exhibitPic1" id="exhibitPic1" data-mini="true" placeholder="예) 길목 or Gilmok"/>
   				<input type="button" name="takePic1" id="btnTakePic1" value="사진촬영" data-mini="true"/>
   			</div>
-      
+        <div class="ui-body">
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-a">
+	                    <input type="reset" id="btnAddCancel" value="취소"/>
+					</div>
+					<div class="ui-block-b">
+	                    <input type="button" id="btnAdd" value="추가"/>
+					</div>
+				</fieldset>
+			</div>
+
 
 
   <!-- End Page Content -->
