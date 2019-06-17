@@ -1,82 +1,169 @@
 <!DOCTYPE html>
 <html>
-<title>GoGoSeeing</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<head>
+		<title>GoGoSeeing</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
-<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
-<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+		<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+		<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+		<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
 
-<!-- jquery-ui-map 플러그인 라이브러리 파일(다운로드 방식)  -->
-<script src="ui/min/jquery.ui.map.full.min.js"></script>
-<script src="ui/jquery.ui.map.extensions.js"></script>
+		<!-- jquery-ui-map 플러그인 라이브러리 파일(다운로드 방식)  -->
+		<script src="ui/min/jquery.ui.map.full.min.js"></script>
+		<script src="ui/jquery.ui.map.extensions.js"></script>
 
-<!-- 사용자 정의 자바스크립트 파일  -->
-<script src="dbHandle.js"></script>
-<script src="photoHandle.js"></script>
+		<!-- 사용자 정의 자바스크립트 파일  -->
+		<script src="dbHandle.js"></script>
+		<script src="photoHandle.js"></script>
 
-<script type="text/javascript">
-// 전역변수 설정
-  var db = null;
-  $(document).ready(function(){
+		<script type="text/javascript">
+			// 전역변수 설정
+			var db = null;
+			$(document).ready(function() {
+				initPhoneGap();
+				// DB, Table 열기
+				openDB();
+				createTable();
 
+				// 				각 페이지 헤더, 푸터바 설정
+				$("#header").load("header.html");
+				$("#footer").load("footer.html");
 
-    // DB, Table 열기
-	    openDB();
-	    createTable();
+				$("#header1").load("header.html");
+				$("#footer1").load("footer.html");
 
-      	
+				$("#header2").load("header.html");
+				$("#footer2").load("footer.html");
 
+				$("#header3").load("header.html");
+				$("#footer3").load("footer.html");
 
-  });
+				$("#btnAdd").click(function() {
+					alert("하이");
+				});
+			});
+			function initPhoneGap() {
+				document.addEventListener('deviceready', onDeviceReady, true);
+			}
 
-</script>
+			function onDeviceReady() {
+				navigator.notification.alert('장치 준비됨', null, '폰갭 API');
+			}
+		</script>
 
-<style>
-body,h1 {font-family: "Raleway", Arial, sans-serif}
-h1 {letter-spacing: 6px}
-.w3-row-padding img {margin-bottom: 12px}
-</style>
-<body>
+		<style>
+			body, h1 {
+				font-family: "Raleway", Arial, sans-serif
+			}
+			h1 {
+				letter-spacing: 6px
+			}
+			.w3-row-padding img {
+				margin-bottom: 12px
+			}
+		</style>
+	</head>
+	<body>
 
-  <!-- !PAGE CONTENT! -->
-  <div class="w3-content" style="max-width:1500px">
+		<div data-role="page" id="mainPage">
+			<!-- !PAGE CONTENT! -->
+			<div class="w3-content" style="max-width:1500px">
 
-  <!-- Header -->
-  <header  class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
-    <h1 class="w3-xlarge">GoGoSeeing</h1>
-    <h1>전시회 알람이</h1>
+				<div id="header"></div>
 
-    <div class="w3-padding-32">
-      <div class="w3-bar w3-border">
-        <a href="./seeExhibition.html" data-transition="flip" class="w3-bar-item w3-button">전시회 보기</a>
-        <a href="./myPlan.html" data-transition="flip" class="w3-bar-item w3-button w3-light-grey">내 일정 보기</a>
-        <a href="./addExhibition.html" data-transition="flip" class="w3-bar-item w3-button">등록하기</a>
-      </div>
-    </div>
-  </header>
+				<!-- End Page Content -->
+			</div>
 
+			<div id="footer"></div>
+		</div>
 
+		<div data-role="page" id="addExhibition">
+			<div class="w3-content" style="max-width:1500px">
 
-  <!-- End Page Content -->
-  </div>
+				<div id="header1"></div>
+				<form id="form1">
+					<div class="ui-body ui-body-a gap">
+						<label for="exhibitName1">전시회 이름  : </label>
+						<input type="text" name="exhibitName1" id="exhibitName1" data-mini="true"/>
+						<label for="exhibitType1" class="select">전시회 종류 :</label>
+						<select name="exhibitType1" id="exhibitType1" data-native-menu="false" data-mini="true" data-inline="true">
+							<option value="미정">미정</option>
+							<option value="미술">미술</option>
+							<option value="예술">예술</option>
+							<option value="IT">IT</option>
+							<option value="역사">역사</option>
+						</select>
+						<label for="exhibitRegion1" class="select">지역 :</label>
+						<select name="exhibitRegion1" id="exhibitRegion1" data-native-menu="false" data-mini="true" data-inline="true">
+							<option value="미정">미정</option>
+							<option value="서울">서울</option>
+							<option value="경기">경기</option>
+							<option value="강원">강원</option>
+							<option value="호남">호남</option>
+							<option value="영남">영남</option>
+							<option value="충청">충청</option>
+							<option value="제주">제주</option>
+						</select>
+						<label for="exhibitPhone1">전화 : </label>
+						<input type="tel" name="exhibitPhone1" id="exhibitPhone1" data-mini="true" placeholder="예) 031-123-4567"/>
+						<label for="exhibitAddress1">주소 : </label>
+						<input type="text" name="exhibitAddress1" id="exhibitAddress1" data-mini="true"/>
+						<label for="exhibitMemo1">메모 : </label>
+						<textarea cols="25" rows="5" name="exhibitMemo1" id="exhibitMemo1" data-mini="true"></textarea>
+						<label for="exhibitPic1">사진 : </label>
+						<input type="text" name="exhibitPic1" id="exhibitPic1" data-mini="true" placeholder="예) 길목 or Gilmok"/>
+						<input type="button" name="takePic1" id="btnTakePic1" value="사진촬영" data-mini="true"/>
+					</div>
+				</form>
+				<div class="ui-body">
+					<fieldset class="ui-grid-a">
+						<div class="ui-block-a">
+							<input type="reset" id="btnAddCancel" value="취소"/>
+						</div>
+						<div class="ui-block-b">
+							<input type="button" id="btnAdd" value="추가"/>
+						</div>
+					</fieldset>
+				</div>
+				<!-- End Page Content -->
+			</div>
 
-  <!-- Footer -->
-  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p>Powered by <a href="https://github.com/nonalias/GoGoSeeing" target="_blank" class="w3-hover-text-green">SKHU_APP_PROGRAMMING</a></p>
-  </footer>
+			<div id="footer1"></div>
+		</div>
 
+		<div data-role="page" id="myPlan">
+			<!-- !PAGE CONTENT! -->
+			<div class="w3-content" style="max-width:1500px">
 
+				<!-- Header -->
+				<div id="header2"></div>
 
-</body>
+				<!-- End Page Content -->
+			</div>
+
+			<!-- Footer -->
+			<div id="footer2"></div>
+
+		</div>
+
+		<div data-role="page" id="seeExhibition">
+			<!-- !PAGE CONTENT! -->
+			<div class="w3-content" style="max-width:1500px">
+
+				<!-- Header -->
+				<div id="header3"></div>
+
+				<!-- End Page Content -->
+			</div>
+
+			<!-- Footer -->
+			<div id="footer3"></div>
+
+		</div>
+
+	</body>
 </html>

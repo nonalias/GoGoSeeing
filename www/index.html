@@ -24,27 +24,35 @@
 			// 전역변수 설정
 			var db = null;
 			$(document).ready(function() {
-
+				initPhoneGap();
 				// DB, Table 열기
 				openDB();
 				createTable();
 
+				// 				각 페이지 헤더, 푸터바 설정
 				$("#header").load("header.html");
 				$("#footer").load("footer.html");
-				
+
 				$("#header1").load("header.html");
 				$("#footer1").load("footer.html");
-				
+
 				$("#header2").load("header.html");
 				$("#footer2").load("footer.html");
-				
+
 				$("#header3").load("header.html");
 				$("#footer3").load("footer.html");
 
+				$("#btnAdd").click(function() {
+					alert("하이");
+				});
 			});
-			
-			
+			function initPhoneGap() {
+				document.addEventListener('deviceready', onDeviceReady, true);
+			}
 
+			function onDeviceReady() {
+				navigator.notification.alert('장치 준비됨', null, '폰갭 API');
+			}
 		</script>
 
 		<style>
