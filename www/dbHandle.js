@@ -31,10 +31,10 @@ function openDB(){
         var address = $('#exhibitAddress1').val();
         var memo = $('#exhibitMemo1').val();
         var pic = $('#exhibitPic1').val();
-        var insertSQL = 'insert into cafe(name, type, region, phone, address, memo, pic) values(?,?,?,?,?,?,?,?)';
+        var insertSQL = 'insert into exhibit(name, type, region, phone, address, memo, pic) values(?,?,?,?,?,?,?)';
         tr.executeSql(insertSQL, [name, type, region, phone, address, memo, pic], function(tr, rs){
-             console.log('3_ 맛집 등록...no: ' + rs.insertId);
-             alert('맛집명 ' + $('#exhibitName1').val() + ' 이(가) 입력되었습니다');
+             console.log('3_ 전시회 등록...no: ' + rs.insertId);
+             alert('전시회 명 ' + $('#exhibitName1').val() + ' 이(가) 입력되었습니다');
              $('#exhibitType1').val('미정').attr('selected', 'selected');
              $('#exhibitType1').selectmenu('refresh');
              $('#exhibitRegion1').val('미정').attr('selected', 'selected');
@@ -42,7 +42,7 @@ function openDB(){
 
         	 form1.reset();
         }, function(){
-            alert('맛집명 ' + $('#exhibitName1').val() + ' 이(가) 입력 실패하였습니다');
+            alert('전시회 명 ' + $('#exhibitName1').val() + ' 이(가) 입력 실패하였습니다');
          });
     });
  }
