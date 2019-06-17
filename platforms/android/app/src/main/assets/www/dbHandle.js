@@ -7,16 +7,7 @@ function openDB(){
 // 테이블 생성 트랜잭션 실행
  function createTable() {
     db.transaction(function(tr){
-        var createSQL = 'create table if not exists exhibit(
-          id integer primary key autoincrement,
-          name varchar(20) not null unique,
-          type varchar(20),
-          region varchar(20),
-          phone varchar(20),
-          address varchar(30),
-          memo varchar(200),
-          pic varchar(50)
-        )';
+        var createSQL = 'create table if not exists exhibit(id integer primary key autoincrement, name varchar(20) not null unique, type varchar(20), region varchar(20), phone varchar(20), address varchar(30), memo varchar(200), pic varchar(50))';
 
        tr.executeSql(createSQL, [], function(){
           console.log('2_1_테이블생성_sql 실행 성공...');

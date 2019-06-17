@@ -20,13 +20,18 @@
 <script src="photoHandle.js"></script>
 
 <script type="text/javascript">
-
+// 전역변수 설정
+  var db = null;
   $(document).ready(function(){
-    $('#btnAdd').click(function(){
-      insertExhibit();
-    });
 
-    
+
+    // DB, Table 열기
+	    openDB();
+	    createTable();
+
+      	
+
+
   });
 
 </script>
