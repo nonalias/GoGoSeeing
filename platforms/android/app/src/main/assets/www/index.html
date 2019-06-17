@@ -23,6 +23,7 @@
 
 		<!-- 사용자 정의 자바스크립트 파일  -->
 		<script src="dbHandle.js"></script>
+		<script src="exhibitDisplay.js"></script>
 		<script src="photoHandle.js"></script>
 
 		<script>
@@ -47,8 +48,6 @@
 				$("#header3").load("header.html");
 				$("#footer3").load("footer.html");
 
-				$("#header4").load("header.html");
-				$("#footer4").load("footer.html");
 
 				$("#atagSee").bind('click', function() {
 					$("#pageName").text("전시회 보기");
@@ -122,7 +121,7 @@
 						<input type="text" name="exhibitName1" id="exhibitName1" data-mini="true"/>
 						<label for="exhibitType1" class="select">전시회 종류 :</label>
 						<select name="exhibitType1" id="exhibitType1" data-native-menu="false" data-mini="true" data-inline="true">
-							<option value="%">전체</option>
+							<option value="미정">미정</option>
 							<option value="미술">미술</option>
 							<option value="예술">예술</option>
 							<option value="IT">IT</option>
@@ -130,7 +129,7 @@
 						</select>
 						<label for="exhibitRegion1" class="select">지역 :</label>
 						<select name="exhibitRegion1" id="exhibitRegion1" data-native-menu="false" data-mini="true" data-inline="true">
-							<option value="%">%</option>
+							<option value="미정">미정</option>
 							<option value="서울">서울</option>
 							<option value="경기">경기</option>
 							<option value="강원">강원</option>
@@ -233,13 +232,13 @@
 		</div>
 
 		<!-- 전시회 상세 보여주기 -->
-		<div data-role="page" id="cafeInfoShowPage">
-			<div id="header4"></div>
+		<div data-role="page" id="exhibitInfoShowPage">
+			
 			<div data-role="content">
 				<div id="btnGroup">
 					<span id="btnPicShow">
 						<button data-role="none">
-							사진보기
+							포스터보기
 						</button></span>
 					<span id="btnRouteShow">
 						<button data-role="none">
@@ -248,12 +247,12 @@
 				</div>
 				<div class="ui-body ui-body-a">
 					<br/>
-					<div id="cafeInfoArea">
+					<div id="exhibitInfoArea">
 						카페 정보 표시 영역
 					</div>
 				</div>
 			</div>
-			<div id="footer4"></div>
+			
 		</div>
 
 	</body>

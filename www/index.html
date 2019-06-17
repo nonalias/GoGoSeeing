@@ -48,7 +48,6 @@
 				$("#header3").load("header.html");
 				$("#footer3").load("footer.html");
 
-
 				$("#atagSee").bind('click', function() {
 					$("#pageName").text("전시회 보기");
 				});
@@ -70,8 +69,8 @@
 					$('#exhibitRegion1').selectmenu('refresh');
 					form1.reset();
 				});
-				
-				$('#btnExhibitListSearch').bind('click', function(){
+
+				$('#btnExhibitListSearch').bind('click', function() {
 					selectExhibitList();
 				});
 
@@ -233,7 +232,7 @@
 
 		<!-- 전시회 상세 보여주기 -->
 		<div data-role="page" id="exhibitInfoShowPage">
-			
+
 			<div data-role="content">
 				<div id="btnGroup">
 					<span id="btnPicShow">
@@ -244,6 +243,19 @@
 						<button data-role="none">
 							찾아가기
 						</button></span>
+					<span id="btnDial">
+						<button data-role="none">
+							전화걸기
+						</button></span>
+
+					<span id="btnDelExhibit">
+						<button data-role="none">
+							삭제하기
+						</button></span>
+					<span id="btnModExhibit">
+						<button data-role="none">
+							수정하기
+						</button></span>
 				</div>
 				<div class="ui-body ui-body-a">
 					<br/>
@@ -251,8 +263,12 @@
 						카페 정보 표시 영역
 					</div>
 				</div>
+				<span id="btnSetDate">
+					<button data-role="none">
+						일정등록
+					</button></span>
 			</div>
-			
+
 		</div>
 
 	</body>
