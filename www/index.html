@@ -14,6 +14,13 @@
 <!-- jquery-ui-map 플러그인 라이브러리 파일(다운로드 방식)  -->
 <script src="ui/min/jquery.ui.map.full.min.js"></script>
 <script src="ui/jquery.ui.map.extensions.js"></script>
+<script>
+  var a = window.location.pathname;
+  $(document).ready(function(){
+    $('#currentPath').text(a);
+  });
+
+</script>
 
 <style>
 body,h1 {font-family: "Raleway", Arial, sans-serif}
@@ -39,26 +46,8 @@ h1 {letter-spacing: 6px}
     </div>
   </header>
 
-  <!-- Photo Grid -->
-  <div class="w3-row-padding w3-grayscale" style="margin-bottom:128px">
-    <div class="w3-half">
-      <img src="/w3images/wedding.jpg" style="width:100%">
-      <img src="/w3images/rocks.jpg" style="width:100%">
-      <img src="/w3images/falls2.jpg" style="width:100%">
-      <img src="/w3images/paris.jpg" style="width:100%">
-      <img src="/w3images/nature.jpg" style="width:100%">
-      <img src="/w3images/mist.jpg" style="width:100%">
-      <img src="/w3images/paris.jpg" style="width:100%">
-    </div>
+  <div id = "currentPath">
 
-    <div class="w3-half">
-      <img src="/w3images/underwater.jpg" style="width:100%">
-      <img src="/w3images/ocean.jpg" style="width:100%">
-      <img src="/w3images/wedding.jpg" style="width:100%">
-      <img src="/w3images/mountainskies.jpg" style="width:100%">
-      <img src="/w3images/rocks.jpg" style="width:100%">
-      <img src="/w3images/underwater.jpg" style="width:100%">
-    </div>
   </div>
 
   <!-- End Page Content -->
