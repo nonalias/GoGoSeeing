@@ -47,6 +47,9 @@
 				$("#header3").load("header.html");
 				$("#footer3").load("footer.html");
 
+				$("#header4").load("header.html");
+				$("#footer4").load("footer.html");
+
 				$("#btnAdd").bind('click', function() {
 					insertExhibit();
 
@@ -58,6 +61,9 @@
 					$('#exhibitRegion1').selectmenu('refresh');
 					form1.reset();
 				});
+				
+				
+				
 			});
 			function initPhoneGap() {
 				document.addEventListener('deviceready', onDeviceReady, true);
@@ -163,6 +169,7 @@
 
 		</div>
 
+		<!-- 전시회 보여주기 -->
 		<div data-role="page" id="seeExhibition">
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-content" style="max-width:1500px">
@@ -170,12 +177,40 @@
 				<!-- Header -->
 				<div id="header3"></div>
 
+				<ul data-role="listview" id="exhibitListArea" data-divider-theme="b" data-inset="true">
+					<!-- 전시회 리스트 표시 영역 -->
+				</ul>
+
 				<!-- End Page Content -->
 			</div>
 
 			<!-- Footer -->
 			<div id="footer3"></div>
 
+		</div>
+
+		<!-- 전시회 상세 보여주기 -->
+		<div data-role="page" id="cafeInfoShowPage">
+			<div id="header4"></div>
+			<div data-role="content">
+				<div id="btnGroup">
+					<span id="btnPicShow">
+						<button data-role="none">
+							사진보기
+						</button></span>
+					<span id="btnRouteShow">
+						<button data-role="none">
+							찾아가기
+						</button></span>
+				</div>
+				<div class="ui-body ui-body-a">
+					<br/>
+					<div id="cafeInfoArea">
+						카페 정보 표시 영역
+					</div>
+				</div>
+			</div>
+			<div id="footer4"></div>
 		</div>
 
 	</body>
