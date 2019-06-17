@@ -50,6 +50,16 @@
 				$("#header4").load("header.html");
 				$("#footer4").load("footer.html");
 
+				$("#atagSee").bind('click', function() {
+					$("#pageName").text("전시회 보기");
+				});
+				$("#atagPlan").bind('click', function() {
+					$("#pageName").text("내 일정 보기");
+				});
+				$("#atagAdd").bind('click', function() {
+					$("#pageName").text("등록하기");
+				});
+
 				$("#btnAdd").bind('click', function() {
 					insertExhibit();
 
@@ -62,8 +72,10 @@
 					form1.reset();
 				});
 				
-				
-				
+				$('#btnExhibitListSearch').bind('click', function(){
+					selectExhibitList();
+				});
+
 			});
 			function initPhoneGap() {
 				document.addEventListener('deviceready', onDeviceReady, true);
@@ -176,6 +188,37 @@
 
 				<!-- Header -->
 				<div id="header3"></div>
+
+				<div class="ui-body">
+					<fieldset class="ui-grid-b">
+						<div class="ui-block-a">
+							<select name="exhibitType3" id="exhibitType3" data-native-menu="false" data-mini="true" data-inline="true">
+								<option>업종</option>
+								<option value="%">전체</option>
+								<option value="미술">미술</option>
+								<option value="예술">예술</option>
+								<option value="IT">IT</option>
+								<option value="역사">역사</option>
+							</select>
+						</div>
+						<div class="ui-block-b">
+							<select name="exhibitRegion3" id="exhibitRegion3" data-native-menu="false" data-mini="true" data-inline="true">
+								<option>지역</option>
+								<option value="%">전국</option>
+								<option value="서울">서울</option>
+								<option value="경기">경기</option>
+								<option value="강원">강원</option>
+								<option value="호남">호남</option>
+								<option value="영남">영남</option>
+								<option value="충청">충청</option>
+								<option value="제주">제주</option>
+							</select>
+						</div>
+						<div class="ui-block-c" style="vertical-aligh:top">
+							<input type="button" id="btnExhibitListSearch" value="목록검색" data-mini="true" data-inline="true"/>
+						</div>
+					</fieldset>
+				</div>
 
 				<ul data-role="listview" id="exhibitListArea" data-divider-theme="b" data-inset="true">
 					<!-- 전시회 리스트 표시 영역 -->

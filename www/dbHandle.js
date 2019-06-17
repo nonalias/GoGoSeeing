@@ -48,7 +48,7 @@ function openDB(){
  }
  
   // 전시회 목록 동적 구성을 위한 데이터 검색 트랜잭션 실행
-function selectCafeList() {
+function selectExhibitList() {
   	db.transaction(function(tr){
 		var i, count, tagList='';   
 	    var	sType = $('#exhibitType3').val();  	 
@@ -67,8 +67,8 @@ function selectCafeList() {
 					tagList += '<p>' + rs.rows.item(i).type + '</p>';
 					tagList += '<p>' + rs.rows.item(i).address + '</p></a></li>';					
 			    }	
-			    $('#cafeListArea').html(tagList);
-			    $('#cafeListArea').listview('refresh');
+			    $('#exhibitListArea').html(tagList);
+			    $('#exhibitListArea').listview('refresh');
 			} else {
 			  	navigator.notification.alert('검색 결과 없음', null, '맛집 검색 실패');
 			}

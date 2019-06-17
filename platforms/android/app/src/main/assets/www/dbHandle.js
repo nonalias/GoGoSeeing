@@ -46,3 +46,32 @@ function openDB(){
          });
     });
  }
+ 
+  // 전시회 목록 동적 구성을 위한 데이터 검색 트랜잭션 실행
+function selectExhibitList() {
+  	db.transaction(function(tr){
+		var i, count, tagList='';   
+	    var	sType = $('#exhibitType3').val();  	 
+	    var	sRegion = $('#exhibitRegion3').val();  
+	    var selectSQL = 'select name, type, region, phone, address, memo, pic  from exhibit where type like ? and region like ?'; 	     	
+	  	tr.executeSql(selectSQL, [sType, sRegion], function(tr, rs){    
+   			console.log(' 전시회 조회... ' + rs.rows.length + '건.');  
+   			recordSet = rs;
+			count = rs.rows.length;
+			if(count > 0) {
+				tagList = '<li data-role="list-divider">전시회 목록' + '<span style="float:right">'+count+'건'+'</span></li>';				
+			    for( i = 0; i < count; i += 1) {			
+					tagList += '<li><a onclick="displayExhibitInfo(' + i + ');">';
+					tagList += '<img class="my_listview_img" src="' + rs.rows.item(i).pic + '">';              					
+					tagList += '<h2>' + rs.rows.item(i).name + '</h2>';
+					tagList += '<p>' + rs.rows.item(i).type + '</p>';
+					tagList += '<p>' + rs.rows.item(i).address + '</p></a></li>';					
+			    }	
+			    $('#exhibitListArea').html(tagList);
+			    $('#exhibitListArea').listview('refresh');
+			} else {
+			  	navigator.notification.alert('검색 결과 없음', null, '맛집 검색 실패');
+			}
+		});
+	});
+}

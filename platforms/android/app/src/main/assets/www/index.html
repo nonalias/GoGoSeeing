@@ -47,10 +47,35 @@
 				$("#header3").load("header.html");
 				$("#footer3").load("footer.html");
 
-				$("#btnAdd").bind('click',function(){
-					insertExhibit();
-					
+				$("#header4").load("header.html");
+				$("#footer4").load("footer.html");
+
+				$("#atagSee").bind('click', function() {
+					$("#pageName").text("전시회 보기");
 				});
+				$("#atagPlan").bind('click', function() {
+					$("#pageName").text("내 일정 보기");
+				});
+				$("#atagAdd").bind('click', function() {
+					$("#pageName").text("등록하기");
+				});
+
+				$("#btnAdd").bind('click', function() {
+					insertExhibit();
+
+				});
+				$('#btnAddCancel').bind('click', function() {
+					$('#exhibitType1').val('미정').attr('selected', 'selected');
+					$('#exhibitType1').selectmenu('refresh');
+					$('#exhibitRegion1').val('미정').attr('selected', 'selected');
+					$('#exhibitRegion1').selectmenu('refresh');
+					form1.reset();
+				});
+				
+				$('#btnExhibitListSearch').bind('click', function(){
+					selectExhibitList();
+				});
+
 			});
 			function initPhoneGap() {
 				document.addEventListener('deviceready', onDeviceReady, true);
@@ -97,7 +122,7 @@
 						<input type="text" name="exhibitName1" id="exhibitName1" data-mini="true"/>
 						<label for="exhibitType1" class="select">전시회 종류 :</label>
 						<select name="exhibitType1" id="exhibitType1" data-native-menu="false" data-mini="true" data-inline="true">
-							<option value="미정">미정</option>
+							<option value="%">전체</option>
 							<option value="미술">미술</option>
 							<option value="예술">예술</option>
 							<option value="IT">IT</option>
@@ -105,7 +130,7 @@
 						</select>
 						<label for="exhibitRegion1" class="select">지역 :</label>
 						<select name="exhibitRegion1" id="exhibitRegion1" data-native-menu="false" data-mini="true" data-inline="true">
-							<option value="미정">미정</option>
+							<option value="%">%</option>
 							<option value="서울">서울</option>
 							<option value="경기">경기</option>
 							<option value="강원">강원</option>
@@ -121,7 +146,7 @@
 						<label for="exhibitMemo1">메모 : </label>
 						<textarea cols="25" rows="5" name="exhibitMemo1" id="exhibitMemo1" data-mini="true"></textarea>
 						<label for="exhibitPic1">사진 : </label>
-						<input type="text" name="exhibitPic1" id="exhibitPic1" data-mini="true" placeholder="예) 길목 or Gilmok"/>
+						<input type="text" name="exhibitPic1" id="exhibitPic1" data-mini="true" placeholder="예) 포스터 or Poster"/>
 						<input type="button" name="takePic1" id="btnTakePic1" value="사진촬영" data-mini="true"/>
 					</div>
 				</form>
@@ -156,6 +181,7 @@
 
 		</div>
 
+		<!-- 전시회 보여주기 -->
 		<div data-role="page" id="seeExhibition">
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-content" style="max-width:1500px">
@@ -163,12 +189,71 @@
 				<!-- Header -->
 				<div id="header3"></div>
 
+				<div class="ui-body">
+					<fieldset class="ui-grid-b">
+						<div class="ui-block-a">
+							<select name="exhibitType3" id="exhibitType3" data-native-menu="false" data-mini="true" data-inline="true">
+								<option>업종</option>
+								<option value="%">전체</option>
+								<option value="미술">미술</option>
+								<option value="예술">예술</option>
+								<option value="IT">IT</option>
+								<option value="역사">역사</option>
+							</select>
+						</div>
+						<div class="ui-block-b">
+							<select name="exhibitRegion3" id="exhibitRegion3" data-native-menu="false" data-mini="true" data-inline="true">
+								<option>지역</option>
+								<option value="%">전국</option>
+								<option value="서울">서울</option>
+								<option value="경기">경기</option>
+								<option value="강원">강원</option>
+								<option value="호남">호남</option>
+								<option value="영남">영남</option>
+								<option value="충청">충청</option>
+								<option value="제주">제주</option>
+							</select>
+						</div>
+						<div class="ui-block-c" style="vertical-aligh:top">
+							<input type="button" id="btnExhibitListSearch" value="목록검색" data-mini="true" data-inline="true"/>
+						</div>
+					</fieldset>
+				</div>
+
+				<ul data-role="listview" id="exhibitListArea" data-divider-theme="b" data-inset="true">
+					<!-- 전시회 리스트 표시 영역 -->
+				</ul>
+
 				<!-- End Page Content -->
 			</div>
 
 			<!-- Footer -->
 			<div id="footer3"></div>
 
+		</div>
+
+		<!-- 전시회 상세 보여주기 -->
+		<div data-role="page" id="cafeInfoShowPage">
+			<div id="header4"></div>
+			<div data-role="content">
+				<div id="btnGroup">
+					<span id="btnPicShow">
+						<button data-role="none">
+							사진보기
+						</button></span>
+					<span id="btnRouteShow">
+						<button data-role="none">
+							찾아가기
+						</button></span>
+				</div>
+				<div class="ui-body ui-body-a">
+					<br/>
+					<div id="cafeInfoArea">
+						카페 정보 표시 영역
+					</div>
+				</div>
+			</div>
+			<div id="footer4"></div>
 		</div>
 
 	</body>
