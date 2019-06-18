@@ -2,7 +2,7 @@
 
 // 전시회 상세 정보 표시
 function displayExhibitInfo(index) {
-  var len, i, name="", type="", region="", phone="", address="", memo="", pic="";
+  var len, i, name="", type="", region="", phone="", address="", memo="", pic="", sDate="", eDate="";
 
   // 전시회 상세 정보를 설정
   var myExhibitRecord = recordSet.rows.item(index);    
@@ -39,8 +39,18 @@ function displayExhibitInfo(index) {
       memo = '<p>메모 : ' + myExhibitRecord.memo + '</p>';   
   } else {
       memo = '<p>메모 : 정보없음</p>';
+  }
+  if(myExhibitRecord.sDate != null) {          // 메모  
+      sDate = '<p>시작날짜 : ' + myExhibitRecord.sDate + '</p>';   
+  } else {
+      sDate = '<p>시작날짜 : 정보없음</p>';
+  }
+  if(myExhibitRecord.eDate != null) {          // 메모  
+      eDate = '<p>종료날짜 : ' + myExhibitRecord.eDate + '</p>';   
+  } else {
+      eDate = '<p>종료날짜 : 정보없음</p>';
   }  
                              
-  $('#exhibitInfoArea').html(name + type + region + phone + address + memo);
+  $('#exhibitInfoArea').html(name + type + region + phone + address + memo + sDate + eDate);
   $.mobile.changePage("#exhibitInfoShowPage", "slide", false, true);
 }

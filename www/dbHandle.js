@@ -7,7 +7,7 @@ function openDB(){
 // 테이블 생성 트랜잭션 실행
  function createTable() {
     db.transaction(function(tr){
-        var createSQL = 'create table if not exists exhibit(id integer primary key autoincrement, name varchar(20) not null unique, type varchar(20), region varchar(20), phone varchar(20), address varchar(30), memo varchar(200), pic varchar(50))';
+        var createSQL = 'create table if not exists exhibit(id integer primary key autoincrement, name varchar(20) not null unique, type varchar(20), region varchar(20), phone varchar(20), address varchar(30), memo varchar(200), pic varchar(50), sDate date(10), eDate date(10))';
 
        tr.executeSql(createSQL, [], function(){
           console.log('2_1_테이블생성_sql 실행 성공...');
@@ -31,8 +31,10 @@ function openDB(){
         var address = $('#exhibitAddress1').val();
         var memo = $('#exhibitMemo1').val();
         var pic = $('#exhibitPic1').val();
-        var insertSQL = 'insert into exhibit(name, type, region, phone, address, memo, pic) values(?,?,?,?,?,?,?)';
-        tr.executeSql(insertSQL, [name, type, region, phone, address, memo, pic], function(tr, rs){
+        var sDate = $('#exhibitStartDate').val();
+        var eDate = $('#exhibitEndDate').val();
+        var insertSQL = 'insert into exhibit(name, type, region, phone, address, memo, pic, sDate, eDate) values(?,?,?,?,?,?,?,?,?)';
+        tr.executeSql(insertSQL, [name, type, region, phone, address, memo, pic, sDate, eDate], function(tr, rs){
              console.log('3_ 전시회 등록...no: ' + rs.insertId);
              alert('전시회 명 ' + $('#exhibitName1').val() + ' 이(가) 입력되었습니다');
              $('#exhibitType1').val('미정').attr('selected', 'selected');
@@ -53,7 +55,7 @@ function selectExhibitList() {
 		var i, count, tagList='';   
 	    var	sType = $('#exhibitType3').val();  	 
 	    var	sRegion = $('#exhibitRegion3').val();  
-	    var selectSQL = 'select name, type, region, phone, address, memo, pic  from exhibit where type like ? and region like ?'; 	     	
+	    var selectSQL = 'select name, type, region, phone, address, memo, pic, sDate, eDate  from exhibit where type like ? and region like ?'; 	     	
 	  	tr.executeSql(selectSQL, [sType, sRegion], function(tr, rs){    
    			console.log(' 전시회 조회... ' + rs.rows.length + '건.');  
    			recordSet = rs;
