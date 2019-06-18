@@ -83,14 +83,9 @@ function selectExhibitList() {
  	  var deleteSQL = 'delete from exhibit where name = ?';      
 	  tr.executeSql(deleteSQL, [name], function(tr, rs){    
 	     console.log('6_전시회 삭제... ');   
-	     alert('전시회 명 ' + varExhibitName + ' 이(가) 삭제되었습니다');   	     
-             $('#exhibitType2').val('미정').attr('selected', 'selected'); 
-             $('#exhibitType2').selectmenu('refresh'); 
-             $('#exhibitRegion2').val('미정').attr('selected', 'selected'); 
-             $('#exhibitRegion2').selectmenu('refresh');
-        	 form2.reset();        
+	     alert('전시회 명 ' + name + ' 이(가) 삭제되었습니다');   	       
       }, function(){
-          alert('맛집명 ' + $('#exhibitName1').val() + ' 이(가) 삭제 실패하였습니다');                   	 
+          alert('맛집명 ' + name + ' 이(가) 삭제 실패하였습니다');                   	 
 	  });
    });         
  } 

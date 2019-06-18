@@ -9,7 +9,8 @@ function displayExhibitInfo(index) {
   varPosition = index;
   
   if(myExhibitRecord.name != null) {          // 맛집 이름           
-    name = '<div class="ui-bar ui-bar-a"><h3>' + myExhibitRecord.name + '</h3></div>';   
+    name = '<div class="ui-bar ui-bar-a"><h3>' + myExhibitRecord.name + '</h3></div>'; 
+    varExhibitName = myExhibitRecord.name;  
   } else {
       name = '<p>이름 : 정보없음</p>';
   }  
