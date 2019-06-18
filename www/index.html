@@ -60,6 +60,8 @@
 
 				$("#header3").load("header.html");
 				$("#footer3").load("footer.html");
+				
+				$("#footer4").load("footer.html");
 
 				$("#atagSee").bind('click', function() {
 					$("#pageName").text("전시회 보기");
@@ -133,7 +135,10 @@
 			.w3-row-padding img {
 				margin-bottom: 12px
 			}
-			#realMapArea {width:100%; height: 330px;}
+			#realMapArea {
+				width: 100%;
+				height: 330px;
+			}
 		</style>
 	</head>
 	<body>
@@ -295,7 +300,8 @@
 				</div>
 				<span id="btnSetDate" class="button-4" style="display: block; width: 250px"> <div class="eff-4"></div> <a href="#"> 일정등록 </a></span>
 			</div>
-
+			<!-- Footer -->
+			<div id="footer4"></div>
 		</div>
 
 		<div data-role="dialog" id="picShowDialog" data-theme="b">

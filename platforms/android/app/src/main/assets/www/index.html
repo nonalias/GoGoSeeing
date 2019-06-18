@@ -109,9 +109,9 @@
 					getExhibitPic();
 				});
 
-				$('#btnRouteShow').bind('click', function() {
-					getExhibitRouteMap();
-				});
+				// $('#btnRouteShow').bind('click', function() {
+				// getExhibitRouteMap();
+				// });
 
 			});
 			function initPhoneGap() {
@@ -133,6 +133,7 @@
 			.w3-row-padding img {
 				margin-bottom: 12px
 			}
+			#realMapArea {width:100%; height: 330px;}
 		</style>
 	</head>
 	<body>
@@ -279,7 +280,7 @@
 			<div data-role="content">
 				<div id="btnGroup">
 					<span id="btnPicShow" class="button-4"> <div class="eff-4"></div> <a href="#"> 포스터보기 </a></span>
-					<span id="btnRouteShow" class="button-4"> <div class="eff-4"></div> <a href="#"> 찾아가기 </a></span>
+
 					<span id="btnDial" class="button-4"> <div class="eff-4"></div> <a href="#"> 전화걸기 </a></span>
 
 					<span id="btnDelExhibit" class="button-4"> <div class="eff-4"></div> <a href="#"> 삭제하기 </a></span>
@@ -289,12 +290,10 @@
 					<div id="exhibitInfoArea">
 						전시회 정보 표시 영역
 					</div>
+					<br />
+					<div id="realMapArea"></div>
 				</div>
-				<span id="btnSetDate" class="button-4" style="display: block; width: 250px">
-					<div class="eff-4"></div>
-					<a href="#">
-						일정등록
-					</a></span>
+				<span id="btnSetDate" class="button-4" style="display: block; width: 250px"> <div class="eff-4"></div> <a href="#"> 일정등록 </a></span>
 			</div>
 
 		</div>
@@ -303,16 +302,8 @@
 			<div data-role="content"  data-theme="b">
 				<div id="picName" class="ui-bar ui-bar-a"></div>
 				<br/>
-				<div><img id="picArea" src=""/ style="width: 330px; height:200px;" />
+				<div><img id="picArea" src=""/ style="width: 200px; height:330px;" />
 				</div>
-			</div>
-		</div>
-
-		<div data-role="dialog" id="routeShowDialog" data-theme="b">
-			<div data-role="content"  data-theme="b">
-				<div id="routeName" class="ui-bar ui-bar-a"></div>
-				<br/>
-				<div id="routeArea"></div>
 			</div>
 		</div>
 
