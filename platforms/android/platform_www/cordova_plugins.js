@@ -92,12 +92,21 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "navigator.notification"
       ]
+    },
+    {
+      "id": "cordova-plugin-call-number.CallNumber",
+      "file": "plugins/cordova-plugin-call-number/www/CallNumber.js",
+      "pluginId": "cordova-plugin-call-number",
+      "clobbers": [
+        "call"
+      ]
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-contacts": "3.0.1",
     "cordova-plugin-dialogs": "2.0.1",
-    "cordova-plugin-console": "1.1.0"
+    "cordova-plugin-console": "1.1.0",
+    "cordova-plugin-call-number": "1.0.1"
   };
 });

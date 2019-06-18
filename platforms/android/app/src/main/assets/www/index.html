@@ -26,12 +26,14 @@
 		<script src="exhibitDisplay.js"></script>
 		<script src="photoHandle.js"></script>
 		<script src="dialHandle.js"></script>
-		
+
 		<link rel="stylesheet" href="./buttonDesign.css" type="text/css"/>
 
 		<script>
 			// 전역변수 설정
 			var db = null;
+			// 내가 클릭한 현재 레코드의 값을 전역변수로 설정
+			var myPhone;
 			$(document).ready(function() {
 				initPhoneGap();
 				// DB, Table 열기
@@ -76,9 +78,9 @@
 				$('#btnExhibitListSearch').bind('click', function() {
 					selectExhibitList();
 				});
-				
-				$('#btnDial').bind('click', function(){
-					dialContact();
+
+				$('#btnDial').bind('click', function() {
+					dialContact(myPhone);
 				});
 
 			});
@@ -111,7 +113,6 @@
 
 				<div id="header"></div>
 
-				
 				<!-- End Page Content -->
 			</div>
 
@@ -243,32 +244,12 @@
 
 			<div data-role="content">
 				<div id="btnGroup">
-					<span id="btnPicShow" class="button-4">
-						<div class="eff-4"></div>
-						<a href="#">
-							포스터보기
-						</a></span>
-					<span id="btnRouteShow" class="button-4">
-						<div class="eff-4"></div>
-						<a href="#">
-							찾아가기
-						</a></span>
-					<span id="btnDial" class="button-4">
-						<div class="eff-4"></div>
-						<a href="#">
-							전화걸기
-						</a></span>
+					<span id="btnPicShow" class="button-4"> <div class="eff-4"></div> <a href="#"> 포스터보기 </a></span>
+					<span id="btnRouteShow" class="button-4"> <div class="eff-4"></div> <a href="#"> 찾아가기 </a></span>
+					<span id="btnDial" class="button-4"> <div class="eff-4"></div> <a href="#"> 전화걸기 </a></span>
 
-					<span id="btnDelExhibit" class="button-4">
-						<div class="eff-4"></div>
-						<a href="#">
-							삭제하기
-						</a></span>
-					<span id="btnModExhibit" class="button-4">
-						<div class="eff-4"></div>
-						<a href="#">
-							수정하기
-						</a></span>
+					<span id="btnDelExhibit" class="button-4"> <div class="eff-4"></div> <a href="#"> 삭제하기 </a></span>
+					<span id="btnModExhibit" class="button-4"> <div class="eff-4"></div> <a href="#"> 수정하기 </a></span>
 				</div>
 				<div class="ui-body ui-body-a">
 					<br/>

@@ -18,6 +18,9 @@
     },
     "cordova-plugin-console": {
       "PACKAGE_NAME": "com.example.gogoseeing"
+    },
+    "cordova-plugin-call-number": {
+      "PACKAGE_NAME": "com.example.gogoseeing"
     }
   },
   "dependent_plugins": {}

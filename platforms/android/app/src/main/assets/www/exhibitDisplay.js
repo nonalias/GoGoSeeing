@@ -1,3 +1,5 @@
+
+
 // 전시회 상세 정보 표시
 function displayExhibitInfo(index) {
   var len, i, name="", type="", region="", phone="", address="", memo="", pic="";
@@ -22,7 +24,8 @@ function displayExhibitInfo(index) {
       region = '<p>지역 : 정보없음</p>';
   }   
   if(myExhibitRecord.phone != null) {          // 전화번호 
-      phone = '<p>전화 : ' + myExhibitRecord.phone + '</p>';            
+      phone = '<p>전화 : ' + myExhibitRecord.phone + '</p>';    
+      myPhone = myExhibitRecord.phone;        
   } else {
       phone = '<p>전화 : 정보없음</p>';
   }   
