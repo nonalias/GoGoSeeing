@@ -1,5 +1,6 @@
 // 전시회 상세 정보 표시
 function displayExhibitInfo(index) {
+	
 	var len,
 	    i,
 	    name = "",
@@ -15,7 +16,8 @@ function displayExhibitInfo(index) {
 	// 전시회 상세 정보를 설정
 	var myExhibitRecord = recordSet.rows.item(index);
 	varPosition = index;
-
+	
+	
 	if (myExhibitRecord.name != null) {// 맛집 이름
 		name = '<div class="ui-bar ui-bar-a"><h3>' + myExhibitRecord.name + '</h3></div>';
 		varExhibitName = myExhibitRecord.name;
@@ -58,7 +60,7 @@ function displayExhibitInfo(index) {
 	} else {
 		eDate = '<p>종료날짜 : 정보없음</p>';
 	}
-
+	getExhibitRouteMap();
 	$('#exhibitInfoArea').html(name + type + region + phone + address + sDate + eDate + memo);
 	$.mobile.changePage("#exhibitInfoShowPage", "slide", false, true);
 }
@@ -72,23 +74,24 @@ function getExhibitPic() {
 }
 
 function getExhibitRouteMap() {
-	var myName = recordSet.rows.item(varPosition).address;
-	$('#routeName').text(myName);
-	$.mobile.changePage("#routeShowDialog", "pop", false, true);
-	$('#routeArea').gmap('destroy');
+	// var myName = recordSet.rows.item(varPosition).address;
+	// $('#routeName').text(myName);
+	// $.mobile.changePage("#routeShowDialog", "pop", false, true);
+	// $('#realMapArea').gmap('destroy');
 	navigator.geolocation.getCurrentPosition(function(Position) {
 		var lat = Position.coords.latitude;
 		var lng = Position.coords.longitude;
-
+		
 		var start = new google.maps.LatLng(lat, lng);
 		var end = recordSet.rows.item(varPosition).address;
-		var mode = 'TRANSIT';
+		var mode = 'TRANSIT'
 		var request = {
 			origin : start,
 			destination : end,
 			travelMode : eval('google.maps.DirectionsTravelMode.' + mode)
 		};
-		$('#routeArea').gmap('displayDirections', request, function(result, status) {
+		
+		$('#realMapArea').gmap('displayDirections', request, function(result, status) {
 			if (status === 'OK') {
 				alert('성공');
 			} else {

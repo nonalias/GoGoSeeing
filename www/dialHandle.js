@@ -1,4 +1,4 @@
-function dialContact(phone) {
+function dialContact() {
     var number = phone;
     var byPassAppChooser = true;
 //     cordova plugin add cordova-plugin-call-number 을 해야 사용가능하다.
