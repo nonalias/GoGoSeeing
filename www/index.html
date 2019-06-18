@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
 		<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
 		<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+		<script src="cordova.js"></script>
 
 		<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyUNUXOzxx3eiGhlFOb5o6r-i7EvwkHG8&callback=initMap"></script> -->
 
@@ -32,6 +33,13 @@
 		<script>
 			// 전역변수 설정
 			var db = null;
+			// DB 객체
+			var varExhibitName;
+			// 현재 전시회 이름
+			var recordSet = null;
+			// 현재 레코드셋
+			var varPosition = null;
+			// 현재 레코드
 			// 내가 클릭한 현재 레코드의 값을 전역변수로 설정
 			var myPhone;
 			$(document).ready(function() {
@@ -81,6 +89,10 @@
 
 				$('#btnDial').bind('click', function() {
 					dialContact(myPhone);
+				});
+				
+				$('#btnDelExhibit').bind('click', function(){
+					deleteExhibit()
 				});
 
 			});
