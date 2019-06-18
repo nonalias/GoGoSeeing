@@ -25,6 +25,7 @@
 		<script src="dbHandle.js"></script>
 		<script src="exhibitDisplay.js"></script>
 		<script src="photoHandle.js"></script>
+		<script src="dialHandle.js"></script>
 		
 		<link rel="stylesheet" href="./buttonDesign.css" type="text/css"/>
 
@@ -74,6 +75,10 @@
 
 				$('#btnExhibitListSearch').bind('click', function() {
 					selectExhibitList();
+				});
+				
+				$('#btnDial').bind('click', function(){
+					dialContact();
 				});
 
 			});
@@ -268,7 +273,7 @@
 				<div class="ui-body ui-body-a">
 					<br/>
 					<div id="exhibitInfoArea">
-						카페 정보 표시 영역
+						전시회 정보 표시 영역
 					</div>
 				</div>
 				<span id="btnSetDate">
