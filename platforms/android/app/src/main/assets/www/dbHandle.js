@@ -104,17 +104,18 @@ function deleteExhibit() {
 
 
 // 선택한 일정을 찾아서 나열해줌
-function selectExhibitList() {
+function selectPlanList() {
 	$('#planExhibitListArea').listview('refresh');
 	db.transaction(function(tr) {
 		var i,
 		    count,
 		    tagList = '';
+		var ischecked=1;
 		// var sType = $('#exhibitType3').val();
 		// var sRegion = $('#exhibitRegion3').val();
 		// type like ? and region like ?
 		var selectSQL = 'select name, type, region, phone, address, memo, pic, sDate, eDate  from exhibit where checked=?';
-		tr.executeSql(selectSQL, [checked], function(tr, rs) {
+		tr.executeSql(selectSQL, [ischecked], function(tr, rs) {
 			console.log(' 전시회 조회... ' + rs.rows.length + '건.');
 			recordSetSelected = rs;
 			count = rs.rows.length;
@@ -145,7 +146,7 @@ function selectExhibitList() {
         var updateSQL = 'update exhibit set checked=true where name = ?';          
         tr.executeSql(updateSQL, [name], function(tr, rs){    
              console.log('5_일정에 저장 .... ') ;
-             alert('전시회 명 ' + varCafeName + ' 이(가) 일정에 등록되었습니다');                      
+             alert('전시회 명 ' + varExhibitName + ' 이(가) 일정에 등록되었습니다');                      
 
         }, function(){
             alert('전시회 명 ' + varExhibitName + ' 이(가) 일정 등록에 실패 하였습니다');                  	 
