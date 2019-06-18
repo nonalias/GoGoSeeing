@@ -9,6 +9,15 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.gogoseeing"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.example.gogoseeing"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.example.gogoseeing"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.example.gogoseeing"
     }
   },
   "dependent_plugins": {}
