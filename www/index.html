@@ -60,7 +60,7 @@
 
 				$("#header3").load("header.html");
 				$("#footer3").load("footer.html");
-				
+
 				$("#footer4").load("footer.html");
 
 				$("#atagSee").bind('click', function() {
@@ -114,6 +114,16 @@
 				// $('#btnRouteShow').bind('click', function() {
 				// getExhibitRouteMap();
 				// });
+
+				// 				내 일정에 저장
+				$('#btnSetDate').bind('click', function() {
+					setDate();
+				});
+				
+// 				일정 확인하기 버튼
+				$('#btnMyPlan').bind('click', function(){
+					selectPlanList();
+				});
 
 			});
 			function initPhoneGap() {
@@ -219,7 +229,10 @@
 
 				<!-- Header -->
 				<div id="header2"></div>
-
+				<button value="내 일정 확인하기" id="btnMyPlan"></button>
+				<ul data-role="listview" id="planExhibitListArea" data-divider-theme="b" data-inset="true">
+					<!-- 일정 리스트 표시 영역 -->
+				</ul>
 				<!-- End Page Content -->
 			</div>
 
@@ -298,7 +311,7 @@
 					<br />
 					<div id="realMapArea"></div>
 				</div>
-				<span id="btnSetDate" class="button-4" style="display: block; width: 250px"> <div class="eff-4"></div> <a href="#"> 일정등록 </a></span>
+				<span id="btnSetDate" class="button-4" style="display: block; width: 250px;margin-left: 40px;"> <div class="eff-4"></div> <a href="#"> 일정등록 </a></span>
 			</div>
 			<!-- Footer -->
 			<div id="footer4"></div>
