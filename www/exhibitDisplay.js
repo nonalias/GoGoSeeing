@@ -54,3 +54,12 @@ function displayExhibitInfo(index) {
   $('#exhibitInfoArea').html(name + type + region + phone + address + memo + sDate + eDate);
   $.mobile.changePage("#exhibitInfoShowPage", "slide", false, true);
 }
+
+
+function getExhibitPic() {
+  var myName = recordSet.rows.item(varPosition).name; 
+  var myPic = recordSet.rows.item(varPosition).pic;   
+  $('#picName').text(myName);          
+  $('#picArea').attr('src', myPic);
+  $.mobile.changePage("#picShowDialog", "pop", false, true);            
+}

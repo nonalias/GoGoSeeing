@@ -104,6 +104,10 @@
 						capturePhoto();
 					}
 				});
+				
+				$('#btnPicShow').bind('click', function(){
+					getExhibitPic();
+				});
 
 			});
 			function initPhoneGap() {
@@ -288,6 +292,15 @@
 					</button></span>
 			</div>
 
+		</div>
+		
+		<div data-role="dialog" id="picShowDialog" data-theme="b">
+			<div data-role="content"  data-theme="b">
+				<div id="picName" class="ui-bar ui-bar-a"></div>
+				<br/>
+				<div><img id="picArea" src=""/ style="width: 330px; height:200px;" />
+				</div>
+			</div>
 		</div>
 
 	</body>
