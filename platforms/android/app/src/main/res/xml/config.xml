@@ -69,12 +69,8 @@
         <param name="android-package" value="plugin.google.maps.PluginStreetViewPanorama" />
     </feature>
     <name>GoGoSeeing</name>
-    <description>
-        A sample Apache Cordova application that responds to the deviceready event.
-    </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
+    <description>전시회 어릎링비낟.</description>
+    <author email="ktw1532@naver.com" href="https://github.com/nonalias/GoGoSeeing">GoGoSeeing</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -88,4 +84,6 @@
     <preference name="xwalkZOrderOnTop" value="true" />
     <preference name="BackgroundColor" value="0" />
     <preference name="android-minSdkVersion" value="19" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDyUNUXOzxx3eiGhlFOb5o6r-i7EvwkHG8" />
+    <preference name="phonegap-version" value="cli-8.1.1" />
 </widget>

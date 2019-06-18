@@ -13,10 +13,10 @@
 		<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
 		<script src="cordova.js"></script>
 
-		<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyUNUXOzxx3eiGhlFOb5o6r-i7EvwkHG8&callback=initMap"></script> -->
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyUNUXOzxx3eiGhlFOb5o6r-i7EvwkHG8&callback=initMap"></script>
 
 		<!-- 구글맵 API 라이브러리 파일(CDN 방식)  -->
-		<!-- <script src="http://maps.google.com/maps/api/js?sensor=true&language=ko"></script> -->
+		<script src="http://maps.google.com/maps/api/js?sensor=true&language=ko"></script>
 
 		<!-- jquery-ui-map 플러그인 라이브러리 파일(다운로드 방식)  -->
 		<script src="ui/min/jquery.ui.map.full.min.js"></script>
@@ -104,9 +104,13 @@
 						capturePhoto();
 					}
 				});
-				
-				$('#btnPicShow').bind('click', function(){
+
+				$('#btnPicShow').bind('click', function() {
 					getExhibitPic();
+				});
+
+				$('#btnRouteShow').bind('click', function() {
+					getExhibitRouteMap();
 				});
 
 			});
@@ -286,20 +290,29 @@
 						전시회 정보 표시 영역
 					</div>
 				</div>
-				<span id="btnSetDate">
-					<button data-role="none">
+				<span id="btnSetDate" class="button-4" style="display: block; width: 250px">
+					<div class="eff-4"></div>
+					<a href="#">
 						일정등록
-					</button></span>
+					</a></span>
 			</div>
 
 		</div>
-		
+
 		<div data-role="dialog" id="picShowDialog" data-theme="b">
 			<div data-role="content"  data-theme="b">
 				<div id="picName" class="ui-bar ui-bar-a"></div>
 				<br/>
-				<div><img id="picArea" src=""/ style="width: 330px; height:200px;" />
+				<div><img id="picArea" src=""/ style="width: 200px; height:330px;" />
 				</div>
+			</div>
+		</div>
+
+		<div data-role="dialog" id="routeShowDialog" data-theme="b">
+			<div data-role="content"  data-theme="b">
+				<div id="routeName" class="ui-bar ui-bar-a"></div>
+				<br/>
+				<div id="routeArea"></div>
 			</div>
 		</div>
 
