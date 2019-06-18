@@ -94,6 +94,16 @@
 				$('#btnDelExhibit').bind('click', function(){
 					deleteExhibit();
 				});
+				
+// 				사진버튼 리스너
+				$('#btnTakePic1').bind('click', function() {
+					if ($('#exhibitPic1').val() == '') {
+						navigator.notification.alert('사진 이름을 먼저 입력하세요', null, '입력오류');
+					} else {
+						flag = 'enrol';
+						capturePhoto();
+					}
+				});
 
 			});
 			function initPhoneGap() {

@@ -21,6 +21,15 @@
     },
     "cordova-plugin-call-number": {
       "PACKAGE_NAME": "com.example.gogoseeing"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.example.gogoseeing"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.example.gogoseeing"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.example.gogoseeing"
     }
   },
   "dependent_plugins": {}

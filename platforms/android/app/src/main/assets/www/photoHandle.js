@@ -21,9 +21,9 @@ function movePic(fileuri){
 function resolveOnSuccess(fileentry){
     // 카페 등록 또는 수정 화면 입력값으로 저장할 사진 이름 지정
     if (flag == 'enrol'){
-        var newfilename = $('#cafePic1').val() + '.jpg';		// ②
+        var newfilename = $('#exhibitPic1').val() + '.jpg';		// ②
     } else if (flag == 'modify') {
-        var newfilename = $('#cafePic2').val() + '.jpg';
+        var newfilename = $('#exhibitPic2').val() + '.jpg';
     }
     // 이동할 저장 폴더 설정
     var newfoldername = "ExhibitionApp"; 		// ①
